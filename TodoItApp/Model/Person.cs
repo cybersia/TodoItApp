@@ -6,12 +6,14 @@ namespace TodoItApp.Model
 {
     public class Person
     {
-        // fields
+        // Fields
+
         readonly int personId;
-        string firstName = "John";
-        string lastName = "Doe";
+        string firstName = "Majid";
+        string lastName = "Babaei";
 
         // Properties
+
         public int PersonId 
         {
             get
@@ -26,7 +28,7 @@ namespace TodoItApp.Model
             {
                 if (String.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("First Name cannot be empty.");
+                    throw new ArgumentException(" First Name cant be empty");
                 }
                 firstName = value;
             }
