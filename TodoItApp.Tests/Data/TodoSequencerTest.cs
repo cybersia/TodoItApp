@@ -12,6 +12,7 @@ namespace TodoItApp.Tests
         public void TodoIdCountsUp()
         {
             // Arrange
+
             int oldvalue = TodoSequencer.NextTodoId();
             int expected = oldvalue + 1;
 
@@ -29,7 +30,7 @@ namespace TodoItApp.Tests
         {
             // Arrange
             int expected = 1;
-            for (int i = 0; i < 67; i++) //Just count up a bunch of times 
+            for (int i = 0; i < 67; i++)
                 TodoSequencer.NextTodoId();
 
             // Act

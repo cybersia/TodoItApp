@@ -26,8 +26,9 @@ namespace TodoItApp.Tests
         public void PersonIdCountUpResets()
         {
             //Arrange
+
             int expected = 1;
-            for (int i = 0; i < 10; i++) //just count up a bunch of persons
+            for (int i = 0; i < 10; i++) 
                 PersonSequencer.NextPersonId();
 
             //Act
