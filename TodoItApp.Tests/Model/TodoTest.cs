@@ -14,9 +14,11 @@ namespace TodoItApp.Tests
         [InlineData(" ")]
         public void BadDescriptionConstructor(string desc)
         {
-            //arrange
+            //Arrange
+
             int id = 0;
-            //act & assert
+
+            //Act & assert
             Assert.Throws<ArgumentException>(() => new Todo(id, desc));
         }
 
@@ -26,9 +28,12 @@ namespace TodoItApp.Tests
         [InlineData(" ")]
         public void BadDescriptionProperty(string desc)
         {
-            //arrange
+            //Arrange
+
             Todo todo = new Todo(0, "Good Description");
-            //act & assert
+
+            //Act & assert
+
             Assert.Throws<ArgumentException>( () => todo.Description = desc );
         }
     }

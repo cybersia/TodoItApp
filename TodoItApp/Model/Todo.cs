@@ -27,7 +27,7 @@ namespace TodoItApp.Model
             set
             {
                 if (String.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Description cannot be empty.");
+                    throw new ArgumentException("Description cant be empty.");
                 description = value;
             }
         }
@@ -41,6 +41,7 @@ namespace TodoItApp.Model
             {
                 done = value;
             }
+
         }
         public Person Assignee
         {
@@ -53,6 +54,7 @@ namespace TodoItApp.Model
                 assignee = value;
             }
         }
+
 
         public Todo(int todoId, string description)
         {
