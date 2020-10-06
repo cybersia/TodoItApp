@@ -19,6 +19,7 @@ namespace TodoItApp.Tests
             int id = 0;
 
             //Act & assert
+
             Assert.Throws<ArgumentException>(() => new Todo(id, desc));
         }
 

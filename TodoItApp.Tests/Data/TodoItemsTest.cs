@@ -87,7 +87,7 @@ namespace TodoItApp.Tests.Data
 
             // Act
             todoItems.CreateTodo(desc);
-            Todo actualTodo = todoItems.FindAll()[0]; //Pick it out again
+            Todo actualTodo = todoItems.FindAll()[0];
 
             // Assert
             Assert.Equal(desc, actualTodo.Description);

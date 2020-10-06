@@ -5,7 +5,7 @@ using Xunit;
 using TodoItApp.Data;
 using TodoItApp.Model;
 
-//Because we have a static array field that we use it can mess up tests if they run in parallel, so lets disable parallel test running :O
+//  Parallel test disable
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace TodoItApp.Tests
@@ -33,13 +33,13 @@ namespace TodoItApp.Tests
         {
             // Arrange
             People people = new People();
-            people.Clear(); //Make sure its cleared, since People maintains a static array field to contain persons
-            string firstName = "Kalle";
+            people.Clear(); 
+            string firstName = "Sam";
             string lastName = "Andersson";
             people.CreatePerson(firstName, lastName);
 
             // Act
-            Person kalle = people.FindAll()[0]; //Pick him out again
+            Person kalle = people.FindAll()[0]; 
 
             // Assert
             Assert.Equal(firstName, kalle.FirstName);
@@ -52,11 +52,11 @@ namespace TodoItApp.Tests
         {
             // Arrange
             People people = new People();
-            people.Clear(); //Make sure its cleared, since People maintains a static array field to contain persons
-            string firstName = "Kalle";
+            people.Clear(); 
+            string firstName = "Sam";
             string lastName =  "Andersson";
             people.CreatePerson(firstName, lastName);
-            Person kalle = people.FindAll()[0]; //Pick him out again
+            Person kalle = people.FindAll()[0];
 
             // Act
             Person foundPerson = people.FindById(kalle.PersonId);
@@ -71,9 +71,9 @@ namespace TodoItApp.Tests
         {
             // Arrange
             People people = new People();
-            people.Clear(); //Make sure its cleared, since People maintains a static array field to contain persons
-            people.CreatePerson("Kalle", "Goodname");
-            Person kalle = people.FindAll()[0]; //Pick him out again
+            people.Clear(); 
+            people.CreatePerson("Sam", "Goodname");
+            Person kalle = people.FindAll()[0];
             int nonExistingPersonId = kalle.PersonId + 54;
 
             // Act
@@ -89,13 +89,13 @@ namespace TodoItApp.Tests
         {
             // Arrange
             People people = new People();
-            people.Clear(); //Make sure its cleared, since People maintains a static array field to contain persons
-            string firstName = "Kalle";
+            people.Clear(); 
+            string firstName = "Sam";
             string lastName = "Andersson";
 
             // Act
             people.CreatePerson(firstName, lastName);
-            Person kalle = people.FindAll()[0]; //Pick him out again
+            Person kalle = people.FindAll()[0]; 
 
             // Assert
             Assert.Equal(firstName, kalle.FirstName);
