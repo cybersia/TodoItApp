@@ -27,16 +27,19 @@ namespace TodoItApp.Data
             }
 
             return null;
+
             //return Array.Find<Todo>(todos, n => n.TodoId == todoId);
         }
 
         public void CreateTodo(string desc)
         {
-            //Create a new array with a bigger size to fit in the new todo
+            //Function to create a new array with a bigger size to fit in the new todo
+
             int newLength = todoArray.Length + 1;
             Array.Resize<Todo>(ref todoArray, newLength);
 
-            //Add a todo at the end of the newly resized array
+            //Function to Add a todo at the end of the newly resized array
+
             int todoId = TodoSequencer.NextTodoId();
             todoArray[newLength - 1] = new Todo(todoId, desc);
         }
@@ -45,7 +48,7 @@ namespace TodoItApp.Data
             todoArray = new Todo[0];
         }
 
-        //Assignment Step 10 Below this comment
+      
         public Todo[] FindByDoneStatus(bool doneStatus)
         {
             Todo[] result = new Todo[0];
@@ -54,8 +57,8 @@ namespace TodoItApp.Data
                 if (item.Done == doneStatus)
                 {
                     Array.Resize<Todo>(ref result, result.Length + 1);
-                    result[^1] = item;  // Wow an index operator!
-                    //result[result.Length - 1] = item;
+                    result[^1] = item;  
+                 
                 }
             }
             return result;
@@ -76,7 +79,7 @@ namespace TodoItApp.Data
         }
 
 
-        // Assignment Step 11 Below this comment
+        
 
         public void RemoveTodo(Todo todo)
         {
@@ -84,15 +87,14 @@ namespace TodoItApp.Data
             {
                 if (todoArray[i] == todo)
                 {
-                    todoArray[i] = todoArray[todoArray.Length - 1]; //Move last element to the index of the one to be removed.
-                    Array.Resize<Todo>(ref todoArray, todoArray.Length - 1); //Remove the last item 
+                    todoArray[i] = todoArray[todoArray.Length - 1]; 
+                    Array.Resize<Todo>(ref todoArray, todoArray.Length - 1); 
                 }
             }
 
             //todoArray = Array.FindAll<Todo>(todoArray, n => n != todo);
         }
 
-        // Option 7: I implement the functionality, but hand over the responsibility to the outside world
         public void RemoveAssignee(Person assignee)
         {
             foreach (var item in todoArray)

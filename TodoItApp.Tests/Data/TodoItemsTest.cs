@@ -30,12 +30,12 @@ namespace TodoItApp.Tests.Data
         {
             // Arrange
             TodoItems todoItems = new TodoItems();
-            todoItems.Clear(); //Make sure its cleared, since TodoItems maintains a static array field to contain todos
+            todoItems.Clear();
             string desc = "A description";
             todoItems.CreateTodo(desc);
 
             // Act
-            Todo todo = todoItems.FindAll()[0]; //Pick it out again
+            Todo todo = todoItems.FindAll()[0]; 
 
             // Assert
             Assert.Equal(desc, todo.Description);
@@ -47,10 +47,10 @@ namespace TodoItApp.Tests.Data
         {
             // Arrange
             TodoItems todoItems = new TodoItems();
-            todoItems.Clear(); //Make sure its cleared, since TodoItems maintains a static array field to contain todos
+            todoItems.Clear(); 
             string desc = "A description";
             todoItems.CreateTodo(desc);
-            Todo expectedTodo = todoItems.FindAll()[0]; //Pick it out again
+            Todo expectedTodo = todoItems.FindAll()[0];
 
             // Act
             Todo foundTodo = todoItems.FindById(expectedTodo.TodoId);
@@ -65,9 +65,9 @@ namespace TodoItApp.Tests.Data
         {
             // Arrange
             TodoItems todoItems = new TodoItems();
-            todoItems.Clear(); //Make sure its cleared, since TodoItems maintains a static array field to contain todos
+            todoItems.Clear(); 
             todoItems.CreateTodo("A good description");
-            Todo todo = todoItems.FindAll()[0]; //Pick it out again
+            Todo todo = todoItems.FindAll()[0];
             int nonExistingTodoId = todo.TodoId + 54;
 
             // Act
@@ -82,8 +82,8 @@ namespace TodoItApp.Tests.Data
         {
             // Arrange
             TodoItems todoItems = new TodoItems();
-            todoItems.Clear(); //Make sure its cleared, since TodoItems maintains a static array field to contain todos
-            string desc = "A good description";
+            todoItems.Clear(); 
+            string desc = "Good description";
 
             // Act
             todoItems.CreateTodo(desc);
@@ -99,8 +99,8 @@ namespace TodoItApp.Tests.Data
             // Arrange
             TodoItems todoItems = new TodoItems();
             todoItems.CreateTodo("Good Description");
-            todoItems.CreateTodo("A Gooder Description");
-            todoItems.CreateTodo("The Goodest Description");
+            todoItems.CreateTodo("Better Description");
+            todoItems.CreateTodo("Best Description");
             int expectedSize = 0;
 
             // Act
@@ -115,7 +115,7 @@ namespace TodoItApp.Tests.Data
         }
 
 
-        //Assignment Step 10 Below this comment
+        
 
         [Fact]
         public void FindByDoneStatus()
@@ -138,7 +138,7 @@ namespace TodoItApp.Tests.Data
             Assert.Equal(allTodos[0], doneTodos[0]);
             Assert.Equal(allTodos[1], notDoneTodos[0]);
 
-            // check so there is (1 done) and (1 NOT done)
+          
             Assert.Single(doneTodos);
             Assert.Single(notDoneTodos);
         }
@@ -155,9 +155,9 @@ namespace TodoItApp.Tests.Data
             Todo[] allTodos = todoItems.FindAll();
 
             // Act
-            Person person = new Person(12, "Kalle", "Anka");
+            Person person = new Person(12, "Sam ", "Anderson");
             allTodos[1].Assignee = person;
-            Todo[] assignedTodos = todoItems.FindByAssignee(person); // 2 Birds with 1 stone: findbyassigne(person) calls findbyassigne(personid)
+            Todo[] assignedTodos = todoItems.FindByAssignee(person); 
 
             // Assert
             Assert.Equal(allTodos[1], assignedTodos[0]);
@@ -178,7 +178,7 @@ namespace TodoItApp.Tests.Data
             Todo[] allTodos = todoItems.FindAll();
 
             // Act
-            Person person = new Person(12, "Kalle", "Anka");
+            Person person = new Person(12, "Sam", "Anderson");
             allTodos[0].Assignee = person;
             allTodos[1].Assignee = person;
             Todo[] unassignedTodos = todoItems.FindUnassignedTodoItems();
@@ -190,7 +190,7 @@ namespace TodoItApp.Tests.Data
         }
 
 
-        //Assignment Step 11 Below this comment
+      
 
         [Fact]
         public void RemoveTodo()
